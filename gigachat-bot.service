@@ -1,0 +1,16 @@
+[Unit]
+Description=GigaChat Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/opt/gigachat-bot
+ExecStart=/usr/bin/python3 src/main.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/gigachat-bot/bot.log
+StandardError=append:/opt/gigachat-bot/bot.log
+
+[Install]
+WantedBy=multi-user.target
